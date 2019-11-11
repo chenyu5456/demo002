@@ -2,6 +2,7 @@ package com.yu.test2;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 public class TestDemo01 {
@@ -14,6 +15,9 @@ public class TestDemo01 {
 
         Stream<Dish> stream = menu.stream();
         stream.forEach(System.out::println);
+
+        IntStream intStream = IntStream.rangeClosed(0, 100).filter(n -> n % 2 == 0);
+        System.out.println(intStream.sum());
     }
 
 }
