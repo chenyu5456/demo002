@@ -11,15 +11,16 @@ public class MathTest {
     /**
      * 勾股数-初步
      */
-    public static void test(){
+    public static void test() {
         Stream<int[]> stream = IntStream.rangeClosed(1, 100).boxed()
                 .flatMap(a -> IntStream.rangeClosed(a, 100)
                         .filter(b -> Math.sqrt(a * a + b * b) % 1 == 0)
                         .mapToObj(b -> new int[]{a, b, (int) Math.sqrt(a * a + b * b)}));
-        stream.forEach(System.out::println);
+                stream.forEach(System.out::println);
+
     }
 
-    public static void test1(){
+    public static void test1() {
         Stream<double[]> stream = IntStream.rangeClosed(1, 100).boxed()
                 .flatMap(a -> IntStream.rangeClosed(a, 100)
                         .mapToObj(b -> new double[]{a, b, Math.sqrt(a * a + b * b)})
