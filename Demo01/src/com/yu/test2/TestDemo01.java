@@ -30,6 +30,7 @@ public class TestDemo01 {
         test8();
         test9();
         test10();
+        test11();
     }
 
 
@@ -144,6 +145,16 @@ public class TestDemo01 {
             else if (dish.getNum() <= 700) return CaloricLevel.NORMAL;
             else return CaloricLevel.FAT;
         }));
+        System.out.println(collect);
+    }
+
+    public static void test11(){
+        List<Dish> menu = Arrays.asList(
+                new Dish("yu", false , 800),
+                new Dish("chen", false , 700),
+                new Dish("test", false , 300)
+        );
+        Map<String, List<Dish>> collect = menu.stream().collect(Collectors.groupingBy(Dish::getName));
         System.out.println(collect);
     }
 }
