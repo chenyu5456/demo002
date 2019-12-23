@@ -1,17 +1,20 @@
 package com.test.demo2.Factory;
 
-/**
- * 打折收费子类
- */
-public class CashRebate extends CashSuper {
-    private double moneyRebate;
+public class CashRebate implements CashSuper {
+    private double rebateCondition;
+    private double rebateMoney;
 
-    public CashRebate(double moneyRebate) {
-        this.moneyRebate = moneyRebate;
+    public CashRebate(double rebateCondition, double rebateMoney) {
+        this.rebateCondition = rebateCondition;
+        this.rebateMoney = rebateMoney;
     }
 
     @Override
     public double acceptCash(double money) {
-        return money * moneyRebate;
+        double result = 0d;
+        if(money >= rebateMoney){
+            result = money-Math.floor(money/rebateCondition)*rebateMoney;
+        }
+        return result;
     }
 }

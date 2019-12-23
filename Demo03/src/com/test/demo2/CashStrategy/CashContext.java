@@ -6,23 +6,23 @@ import com.test.demo2.Factory.CashReturn;
 import com.test.demo2.Factory.CashSuper;
 
 public class CashContext {
-    public CashSuper cashSuper;
+    private CashSuper cashSuper;
 
-    public CashContext(String type){
+    public CashContext(String type) {
         switch (type){
             case "正常收费":
                 cashSuper = new CashNormal();
                 break;
             case "满300返100":
-                cashSuper = new CashReturn(300, 100);
+                cashSuper = new CashRebate(300, 100);
                 break;
             case "打8折":
-                cashSuper = new CashRebate(0.8);
+                cashSuper = new CashReturn(0.8);
                 break;
         }
     }
 
-    public double GetResult(double meney){
-        return cashSuper.acceptCash(meney);
+    public double ContextInterface(double money){
+         return cashSuper.acceptCash(money);
     }
 }
